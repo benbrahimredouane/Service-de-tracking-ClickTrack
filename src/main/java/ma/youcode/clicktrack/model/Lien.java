@@ -1,34 +1,35 @@
 package ma.youcode.clicktrack.model;
 public class Lien {
 
-    private int id;
-    private String offre;
+    private Long id;
+    private String offer;
     private String urlDestination;
     private long clicks;
-    private int publisherId;
+    private Long publisherId;
 
-    public Lien(int id, String offre, String urlDestination, long clicks, int publisherId) {
+    public Lien(){}
+    public Lien(Long id, String offer, String urlDestination, long clicks, Long publisherId) {
         this.id = id;
-        this.offre = offre;
+        this.offer = offer;
         this.urlDestination = urlDestination;
         this.clicks = clicks;
         this.publisherId = publisherId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getOffre() {
-        return offre;
+    public String getOffer() {
+        return offer;
     }
 
-    public void setOffre(String offre) {
-        this.offre = offre;
+    public void setOffer(String offer) {
+        this.offer = offer;
     }
 
     public String getUrlDestination() {
@@ -47,11 +48,11 @@ public class Lien {
         this.clicks = clicks;
     }
 
-    public int getPublisherId() {
+    public Long getPublisherId() {
         return publisherId;
     }
 
-    public void setPublisherId(int publisherId) {
+    public void setPublisherId(Long publisherId) {
         this.publisherId = publisherId;
     }
 }

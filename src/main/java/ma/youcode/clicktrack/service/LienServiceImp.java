@@ -2,6 +2,7 @@ package ma.youcode.clicktrack.service;
 
 import ma.youcode.clicktrack.model.Lien;
 import ma.youcode.clicktrack.repository.LienRepository;
+import org.springframework.http.ResponseEntity;
 
 public class LienServiceImp implements LienService {
     private final LienRepository lienRepository;
@@ -10,8 +11,8 @@ public class LienServiceImp implements LienService {
         this.lienRepository = lienRepository;
     }
     @Override
-    public void save(Lien lien){
-        lienRepository.save(lien);
+    public ResponseEntity<Lien> createLien(Long id , Lien lien){
+        return lienRepository.save(id,lien);
     }
 
 
