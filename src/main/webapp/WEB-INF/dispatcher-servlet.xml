@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+<!--    enables @RequestMapping, @GetMapping , @PathVariable , JSON conversion-->
+    <mvc:annotation-driven/>
+
+<!--    Controller: receives the service (declared in applicationContext.xml)-->
+    <bean id="lienController" class="ma.youcode.clicktrack.controller.LienController">
+        <constructor-arg index="0" ref="lienService"/>
+    </bean>
+
+    <bean id="publisherController" class="ma.youcode.clicktrack.controller.PublisherController">
+        <constructor-arg index="0" ref="publisherService"/>
+    </bean>
+
+    </beans>
