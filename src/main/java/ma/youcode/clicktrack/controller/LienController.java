@@ -28,6 +28,13 @@ public class LienController {
 public ResponseEntity<Lien> createLien(@PathVariable("id") Long id , @RequestBody Lien lien){
     return lienService.createLien(id , lien);
 }
+///api/publishers/{id}/liens
+
+    @GetMapping("/publishers/{id}/liens")
+    public ResponseEntity<List<Lien>> findliensbyid(@PathVariable("id") Long id){
+        return lienService.findliensbyid(id);
+    }
+
 
 
 
