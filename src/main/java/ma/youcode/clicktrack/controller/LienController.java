@@ -2,12 +2,13 @@ package ma.youcode.clicktrack.controller;
 
 import ma.youcode.clicktrack.model.Lien;
 import ma.youcode.clicktrack.service.LienService;
-import ma.youcode.clicktrack.service.LienServiceImp;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 //private int id;
 //private String offre;
 //private String urlDestination;
@@ -34,6 +35,12 @@ public ResponseEntity<Lien> createLien(@PathVariable("id") Long id , @RequestBod
     public ResponseEntity<List<Lien>> findliensbyid(@PathVariable("id") Long id){
         return lienService.findliensbyid(id);
     }
+
+    @GetMapping("/publishers/{id}/offers")
+    public ResponseEntity<List<Map<String,Object>>> offers(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(lienService.findoffersbyid(id)) ;
+    }
+
 
 
 

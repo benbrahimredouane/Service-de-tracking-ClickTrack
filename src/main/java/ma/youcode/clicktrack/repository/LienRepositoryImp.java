@@ -11,16 +11,16 @@ public class LienRepositoryImp implements LienRepository {
 
 
     private List<Lien> liens = new ArrayList<>( List.of(
-            new Lien(1L, "iPhone 15", "https://example.com/offres/iphone15", 120, 1L),
-            new Lien(2L, "Samsung Galaxy S25", "https://example.com/offres/samsung-s25", 85, 2L),
-            new Lien(3L, "Nike Air Max", "https://example.com/offres/nike-air-max", 250, 3L),
-            new Lien(4L, "PlayStation 5", "https://example.com/offres/ps5", 310, 1L),
-            new Lien(5L, "MacBook Air", "https://example.com/offres/macbook-air", 95, 4L),
-            new Lien(6L, "Casque Sony", "https://example.com/offres/casque-sony", 67, 5L),
-            new Lien(7L, "Montre connectée", "https://example.com/offres/montre-connectee", 180, 6L),
-            new Lien(8L, "Appareil photo Canon", "https://example.com/offres/canon-camera", 42, 7L),
-            new Lien(9L, "Clavier mécanique", "https://example.com/offres/clavier-mecanique", 155, 8L),
-            new Lien(10L, "Chaise gaming", "https://example.com/offres/chaise-gaming", 73, 10L)
+            new Lien(1L, "iPhone 15", "https://example.com/offres/iphone15", 120L, 1L),
+            new Lien(2L, "Samsung Galaxy S25", "https://example.com/offres/samsung-s25", 85L, 2L),
+            new Lien(3L, "Nike Air Max", "https://example.com/offres/nike-air-max", 250L, 3L),
+            new Lien(4L, "PlayStation 5", "https://example.com/offres/ps5", 310L, 1L),
+            new Lien(5L, "MacBook Air", "https://example.com/offres/macbook-air", 95L, 4L),
+            new Lien(6L, "Casque Sony", "https://example.com/offres/casque-sony", 67L, 5L),
+            new Lien(7L, "Montre connectée", "https://example.com/offres/montre-connectee", 180L, 6L),
+            new Lien(8L, "Appareil photo Canon", "https://example.com/offres/canon-camera", 42L, 7L),
+            new Lien(9L, "Clavier mécanique", "https://example.com/offres/clavier-mecanique", 155L, 8L),
+            new Lien(10L, "Chaise gaming", "https://example.com/offres/chaise-gaming", 73L, 10L)
     ));
 
     @Override
@@ -36,6 +36,13 @@ public class LienRepositoryImp implements LienRepository {
     public ResponseEntity<List<Lien>> findliensbyid(Long id){
         List<Lien> links = liens.stream().filter(e->e.getPublisherId().equals(id)).toList();
         return ResponseEntity.status(HttpStatus.OK).body(links);
+    }
+
+    @Override
+    public List<Lien> findoffersbyid(Long id){
+        List<Lien> links = liens.stream().filter(e->e.getPublisherId().equals(id)).toList();
+        return links;
+
     }
 
 
