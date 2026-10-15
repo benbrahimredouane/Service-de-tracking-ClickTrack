@@ -32,6 +32,12 @@ public class LienRepositoryImp implements LienRepository {
         return ResponseEntity.status(HttpStatus.CREATED).body(lien) ;
     }
 
+    @Override
+    public ResponseEntity<List<Lien>> findliensbyid(Long id){
+        List<Lien> links = liens.stream().filter(e->e.getPublisherId().equals(id)).toList();
+        return ResponseEntity.status(HttpStatus.OK).body(links);
+    }
+
 
     
 }
