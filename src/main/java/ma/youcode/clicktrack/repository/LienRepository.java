@@ -9,5 +9,6 @@ public interface LienRepository {
 
     ResponseEntity<Lien> save(Long id , Lien lien);
     ResponseEntity<List<Lien>> findliensbyid(Long id);
+    List<Lien> findoffersbyid(Long id);
 
 }

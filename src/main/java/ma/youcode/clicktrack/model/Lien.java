@@ -4,11 +4,11 @@ public class Lien {
     private Long id;
     private String offer;
     private String urlDestination;
-    private long clicks;
+    private Long clicks;
     private Long publisherId;
 
     public Lien(){}
-    public Lien(Long id, String offer, String urlDestination, long clicks, Long publisherId) {
+    public Lien(Long id, String offer, String urlDestination, Long clicks, Long publisherId) {
         this.id = id;
         this.offer = offer;
         this.urlDestination = urlDestination;
