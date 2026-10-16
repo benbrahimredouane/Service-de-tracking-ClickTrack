@@ -42,18 +42,18 @@ public ResponseEntity<Lien> createLien(@PathVariable("id") Long id , @RequestBod
     }
     @GetMapping("t/{id}")
     public ResponseEntity<Map<String,Object>> links(@PathVariable("id") Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(lienService.findLienById(id));
+        Map <String,Object > clicks = lienService.findLienById(id);
+
+
+        if(clicks.isEmpty()){
+            clicks.put("message","lien not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(clicks);
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.OK).body(clicks);
+        }
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
