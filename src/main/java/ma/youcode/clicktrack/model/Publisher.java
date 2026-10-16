@@ -2,14 +2,14 @@ package ma.youcode.clicktrack.model;
 
 public class Publisher {
 
-    private int id;
+    private Long id;
     private String nom;
     private String prenom;
     private String email;
     private Category category;
 
     public Publisher(){}
-    public Publisher(int id, String nom, String prenom, String email, Category categorie) {
+    public Publisher(Long id, String nom, String prenom, String email, Category categorie) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -17,11 +17,11 @@ public class Publisher {
         this.category = categorie;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
