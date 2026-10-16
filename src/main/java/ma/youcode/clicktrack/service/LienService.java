@@ -12,5 +12,6 @@ public interface LienService{
     public ResponseEntity<Lien> createLien(Long id , Lien lien);
     public ResponseEntity<List<Lien>> findliensbyid(Long id);
     public List<Map<String,Object>> findoffersbyid(Long id);
+    public Map<String,Object> findLienById(Long id);
 }
 //spring Ioc

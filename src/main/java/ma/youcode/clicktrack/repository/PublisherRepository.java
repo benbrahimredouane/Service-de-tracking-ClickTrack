@@ -4,10 +4,12 @@ import ma.youcode.clicktrack.model.Publisher;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PublisherRepository {
 
     public List<Publisher> findall();
     ResponseEntity<Publisher> save(Publisher publisher);
+    Optional<Publisher> findByid(Long id);
 
 }

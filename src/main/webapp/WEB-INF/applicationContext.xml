@@ -9,6 +9,7 @@
 <!--    service : recive the repository through the constructor-->
     <bean id="lienService" class="ma.youcode.clicktrack.service.LienServiceImp">
         <constructor-arg ref="lienRepository"/>
+        <constructor-arg ref="publisherRepository"/>
     </bean>
 
     <bean id="publisherRepository" class="ma.youcode.clicktrack.repository.PublisherRepositoryImp"/>

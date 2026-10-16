@@ -40,6 +40,10 @@ public ResponseEntity<Lien> createLien(@PathVariable("id") Long id , @RequestBod
     public ResponseEntity<List<Map<String,Object>>> offers(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(lienService.findoffersbyid(id)) ;
     }
+    @GetMapping("t/{id}")
+    public ResponseEntity<Map<String,Object>> links(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(lienService.findLienById(id));
+    }
 
 
 

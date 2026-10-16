@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
+
 public class LienRepositoryImp implements LienRepository {
 
 
@@ -43,6 +45,11 @@ public class LienRepositoryImp implements LienRepository {
         List<Lien> links = liens.stream().filter(e->e.getPublisherId().equals(id)).toList();
         return links;
 
+    }
+    @Override
+    public Optional<Lien> findById(Long id){
+        Optional<Lien> lien = liens.stream().filter(lien1 ->  lien1.getId().equals(id)).map(lien1 -> {lien1.setClicks(lien1.getClicks()+1L)  ; return lien1;} ).findFirst();
+        return lien;
     }
 
 
