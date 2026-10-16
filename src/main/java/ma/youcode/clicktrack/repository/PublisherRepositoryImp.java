@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class PublisherRepositoryImp implements PublisherRepository{
 
-    private List<Publisher> publishers = new ArrayList<>(List.of(
+    private final List<Publisher> publishers = new ArrayList<>(List.of(
             new Publisher(1L, "Benali", "Ahmed", "ahmed.benali@example.com", Category.YOUTUBER),
             new Publisher(2L, "Alaoui", "Sara", "sara.alaoui@example.com", Category.INFLUENCEUR),
             new Publisher(3L, "Amrani", "Youssef", "youssef.amrani@example.com", Category.BLOGUEUR),

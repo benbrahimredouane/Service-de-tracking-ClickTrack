@@ -55,17 +55,23 @@ public class LienServiceImp implements LienService {
     public Map<String, Object> findLienById(Long id) {
         Optional<Lien> lien = lienRepository.findById(id);
 
-        Lien ourLien = lien.get();
-        Optional<Publisher> publisher = publisherRepository.findByid(ourLien.getPublisherId());
-        Publisher ourpublisher = publisher.get();
+        if(lien.isPresent()) {
+            Lien ourLien = lien.get();
+            ourLien.setClicks(ourLien.getClicks() + 1L);
 
-        Map<String, Object> t = new HashMap<>();
-        t.put("url", ourLien.getUrlDestination());
-        t.put("publisher", ourpublisher.getNom() +"  " + ourpublisher.getPrenom());
-        t.put("offer", ourLien.getOffer());
-        t.put("clicks", ourLien.getClicks());
+            Optional<Publisher> publisher = publisherRepository.findByid(ourLien.getPublisherId());
+            Publisher ourpublisher = publisher.get();
 
-        return t;
+            Map<String, Object> t = new HashMap<>();
+            t.put("url", ourLien.getUrlDestination());
+            t.put("publisher", ourpublisher.getNom() + "  " + ourpublisher.getPrenom());
+            t.put("offer", ourLien.getOffer());
+            t.put("clicks", ourLien.getClicks() );
+
+            return t;
+        }
+        else
+            return new HashMap<>();
 
     }
 }

@@ -12,17 +12,12 @@ import java.util.Optional;
 public class LienRepositoryImp implements LienRepository {
 
 
-    private List<Lien> liens = new ArrayList<>( List.of(
+    private final List<Lien> liens = new ArrayList<>( List.of(
             new Lien(1L, "iPhone 15", "https://example.com/offres/iphone15", 120L, 1L),
             new Lien(2L, "Samsung Galaxy S25", "https://example.com/offres/samsung-s25", 85L, 2L),
             new Lien(3L, "Nike Air Max", "https://example.com/offres/nike-air-max", 250L, 3L),
             new Lien(4L, "PlayStation 5", "https://example.com/offres/ps5", 310L, 1L),
-            new Lien(5L, "MacBook Air", "https://example.com/offres/macbook-air", 95L, 4L),
-            new Lien(6L, "Casque Sony", "https://example.com/offres/casque-sony", 67L, 5L),
-            new Lien(7L, "Montre connectée", "https://example.com/offres/montre-connectee", 180L, 6L),
-            new Lien(8L, "Appareil photo Canon", "https://example.com/offres/canon-camera", 42L, 7L),
-            new Lien(9L, "Clavier mécanique", "https://example.com/offres/clavier-mecanique", 155L, 8L),
-            new Lien(10L, "Chaise gaming", "https://example.com/offres/chaise-gaming", 73L, 10L)
+            new Lien(5L, "MacBook Air", "https://example.com/offres/macbook-air", 95L, 4L)
     ));
 
     @Override
@@ -48,7 +43,16 @@ public class LienRepositoryImp implements LienRepository {
     }
     @Override
     public Optional<Lien> findById(Long id){
-        Optional<Lien> lien = liens.stream().filter(lien1 ->  lien1.getId().equals(id)).map(lien1 -> {lien1.setClicks(lien1.getClicks()+1L)  ; return lien1;} ).findFirst();
+
+        Optional<Lien> lien = liens.stream().filter(lien1 ->  lien1.getId().equals(id)).findFirst();
+
+//        if(lien.isPresent()){
+//            lien.map(lien1 -> {
+//                lien1.setClicks(lien1.getClicks()+ 1L);
+//                return lien1;
+//            }
+//            );
+//        }
         return lien;
     }
 
